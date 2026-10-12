@@ -1,24 +1,30 @@
 # Stable Terminal
 
-A chain-focused token research and trading interface built by [0xDominoGirl](https://github.com/0xDominoGirl).
+**A memecoin trading terminal for Stable Chain.**
 
-## The project
+Discover tokens, follow the market and trade from one workspace. Built by [Domino Girl](https://github.com/0xDominoGirl).
 
-The private application brings token discovery, charts, trade activity, holder views, watchlists and wallet/portfolio interfaces into a terminal-style workspace.
+## Inside the terminal
 
-The frontend is built with React and Vite. Its source includes Lightweight Charts and PixiJS for charting/rendering, and viem for chain interactions. This repository describes the implementation snapshot last pushed to the private repo on 25 August 2026; it does not certify the current deployment or trading readiness.
+- **Token discovery** — explore memecoins on Stable Chain.
+- **Charts and trade activity** — track prices and recent trades.
+- **Holder views** — see who holds a token.
+- **Watchlists** — keep the tokens you follow in one place.
+- **Wallet and portfolio** — view your holdings alongside the market.
 
-## One small implementation detail
+## Built with
 
-Prices with many leading zeroes are hard to scan in a dense table. [`lib/price-parts.js`](lib/price-parts.js) contains the terminal's small-price display helper. For example, `0.00003` becomes `{ zeros: 4, digits: "3" }`, which the UI can render as `0.0₄3`.
+React, Vite, Lightweight Charts, PixiJS and viem.
 
-The helper is extracted unchanged from the private frontend module. The new tests here cover representative small values and the existing invalid-input behavior. It is a display helper for small positive numbers, not financial arithmetic or an arbitrary-precision decimal library; callers choose when to use it. The application uses other formatting for ordinary-sized prices.
+<details>
+<summary>About this repository</summary>
+
+This public repository introduces the terminal and includes its [small-price formatting helper](lib/price-parts.js) with tests. The full application is maintained privately.
+
+To run the helper's tests with Node.js 24 or later:
 
 ```sh
-# Node.js 24 or later, no dependencies required
 npm test
 ```
 
-## Scope
-
-This repository contains only this overview, the small formatting helper and its tests. The complete frontend, indexer/API integrations, transaction-building logic, wallet/signing flows, provider configuration, operational notes and private data remain outside this repository.
+</details>
